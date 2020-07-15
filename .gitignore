@@ -3,6 +3,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos
 
 .ipynb_checkpoints
+.DS_Store
 
 ### macOS ###
 # General
