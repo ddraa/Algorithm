@@ -1,13 +1,13 @@
 from _collections import deque
 from itertools import combinations
-import sys
-import copy
+import sys, copy
 
 opx = [1,-1,0,0]
 opy = [0,0,1,-1]
 safe = []
 zone = []
 wall = 0
+vcount = 0
 N, M = map(int, sys.stdin.readline().split())
 matrix = []
 for _ in range(N):
@@ -20,13 +20,15 @@ for i in range(N):
             zone.append([i,j])
         elif matrix[i][j] == 1:
             wall += 1
+        else:
+            vcount += 1
 def spread_virus(i,j):
 
-    visit = {}
+    global visit
     queue = deque()
     queue.append([i,j])
     visit[str(i)+str(j)] = True
-
+    global vic
     while queue:
         ax, ay = queue.popleft()
         for k in range(4):
@@ -38,6 +40,7 @@ def spread_virus(i,j):
                     queue.append([xx,yy])
                     matrix[xx][yy] = 2
                     visit[str(i) + str(j)] = True
+                    vic += 1
 
 permute = combinations(zone,3)
 m = 0
@@ -46,17 +49,13 @@ for k in permute:
     matrix[a[0]][a[1]] = 1
     matrix[b[0]][b[1]] = 1
     matrix[c[0]][c[1]] = 1
-
+    visit = {}
+    vic = 0
     for i in range(N):
         for j in range(M):
-            if matrix[i][j] == 2:
+            if matrix[i][j] == 2 and str(i)+str(j) not in visit:
                 spread_virus(i, j)
-    count = 0
-    for i in range(N):
-        for j in range(M):
-            if matrix[i][j] == 0:
-                count += 1
-
+    count = M*N -3 -vic -wall - vcount
     if m < count:
         m = count
     matrix = copy.deepcopy(temp)
