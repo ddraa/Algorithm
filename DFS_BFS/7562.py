@@ -5,7 +5,6 @@ from _collections import deque
 import sys
 
 def bfs(c):
-    global x, y, visited
     queue = deque()
     queue.append([x,y,c])
 
