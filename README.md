@@ -21,7 +21,7 @@ Implement
 Algorithm
 ---------
 * 이진탐색
-* BFS, DFS, DP
+* BFS, DFS, DP, Backtracking
 
 ETC
 -----
