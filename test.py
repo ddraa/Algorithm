@@ -1,14 +1,19 @@
-vector = [1,3,5,7,9]
-k = 3
+answer = []
+dx = {}
+dy = {}
+v = [[1, 4], [3, 4], [3, 10]]
+for i in v:
+    if i[0] in dx: dx[i[0]] += 1
+    else: dx[i[0]] = 1
+    if i[1] in dy: dy[i[1]] += 1
+    else: dy[i[1]] = 1
+for kx, ky in zip(dx.keys(), dy.keys()):
+    print(kx, ky)
+    if dx[kx] == 1:
+        x = kx
+    if dy[ky] == 1:
+        y = ky
 
-l = 0;
-r = len(vector) - 1
-while l <= r:
-    m = (l + r) // 2
-    if vector[m] >=k:
-        r = m - 1
-    else:
-        l = m + 1
-
-print(l, vector[l]) # which relative position of L ? if k in vector -> l = index of vector('k') or
-                    # appropriate index to enter the list
+print(dx)
+print(dy)
+print(x, y)
