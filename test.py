@@ -1,19 +1,21 @@
-answer = []
-dx = {}
-dy = {}
-v = [[1, 4], [3, 4], [3, 10]]
-for i in v:
-    if i[0] in dx: dx[i[0]] += 1
-    else: dx[i[0]] = 1
-    if i[1] in dy: dy[i[1]] += 1
-    else: dy[i[1]] = 1
-for kx, ky in zip(dx.keys(), dy.keys()):
-    print(kx, ky)
-    if dx[kx] == 1:
-        x = kx
-    if dy[ky] == 1:
-        y = ky
+from _collections import deque
 
-print(dx)
-print(dy)
-print(x, y)
+arr = [1,4,5,7]
+target = 15
+
+c_list = []
+def bfs(s, c):
+    queue = deque()
+    queue.append([s, c])
+    while queue:
+        s, c = queue.popleft()
+        if s == target:
+            c_list.append(c+1)
+            return
+        elif s < target:
+            for k in arr:
+                queue.append([s+k, c+1])
+
+for i in arr:
+    bfs(i, 0)
+print(min(c_list))
