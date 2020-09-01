@@ -24,5 +24,5 @@ def solution(stones, k):
         else: # if not break ..
             left = M + 1
         stones = copy.deepcopy(temp)
-    return left # '조건에 부합하는' 가장 마지막 원소
+    return left # '조건에 부합하는' 가장 마지막 원소, left or left - 1
 print(solution([2, 4, 5, 3, 2, 1, 4, 2, 5, 1], 3))
