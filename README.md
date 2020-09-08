@@ -23,6 +23,10 @@ Algorithm
 * 이진탐색
 * BFS, DFS, DP, Backtracking
 
+Reference
+---------
+* permutations, combinations Once referenced, re-declaration is required
+
 ETC
 -----
 시뮬레이션 수행과제 --> [https://github.com/kakao-recruit/2019-blind-2nd-elevator][id]
