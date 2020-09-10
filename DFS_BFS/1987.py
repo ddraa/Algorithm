@@ -21,6 +21,5 @@ def dfs(x, y, c):
             dfs(ax,ay,c+1)
             visited[ord(matrix[ax][ay])-ord('A')] = 0
 
-
 dfs(0, 0, 1)
 print(MAX)
