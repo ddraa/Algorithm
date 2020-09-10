@@ -45,4 +45,4 @@ def solution(n):
 
 
 
-solution(7)
+solution(9)
