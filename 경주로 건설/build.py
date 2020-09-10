@@ -4,7 +4,7 @@ dx = [1,0,0,-1]
 dy = [0,-1,1,0]
 def bfs(pay, a, b, direct, board):
     N = len(board)
-    visited_cost = [[0]*N for _ in range(N)]
+    visited_cost = [[float('inf')]*N for _ in range(N)]
     queue = deque()
     queue.append([pay, a, b, direct])
 
