@@ -14,7 +14,6 @@ def bfs(pay, a, b, direct, board):
         pay, a, b, direct = queue.popleft()
         if a==N-1 and b == N-1:
             answer.append(pay)
-
         for k in range(4):
             x = a + dx[k]
             y = b + dy[k]
@@ -24,7 +23,7 @@ def bfs(pay, a, b, direct, board):
                     new_cost = pay + 100
                 else:
                     new_cost = pay + 600
-                if not visited_cost[x][y] or visited_cost[x][y] >= new_cost:
+                if not visited_cost[x][y] or visited_cost[x][y] >= new_cost: # caution ! >=
                     visited_cost[x][y] = new_cost
                     queue.append([new_cost, x, y, cur])
 
