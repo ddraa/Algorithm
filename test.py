@@ -1,5 +1,5 @@
-a = int(input())
-b = input()
-for i in range(1, 4):
-    print(a * int(b[-i]))
-print(a * int(b))
+n = input()
+result = ""
+for i in n:
+    result = i + result
+print(f'Result = {int(result)}')
