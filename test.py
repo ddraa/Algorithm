@@ -1,5 +1,8 @@
-n = input()
-result = ""
-for i in n:
-    result = i + result
-print(f'Result = {int(result)}')
+def a(n):
+    n += 1
+
+    return
+
+n = 3
+a(n)
+print(n)
