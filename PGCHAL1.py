@@ -1,5 +1,6 @@
 def solution(n):
     s = []
+    l = []
     for i in range(n):
         t = []
         for j in range(i+1):
@@ -41,8 +42,6 @@ def solution(n):
         ex -= 1
         ey -= 2
     for i in s:
-        print(i)
-
-
-
-solution(9)
+        for k in i:
+            l.append(k)
+    return l
