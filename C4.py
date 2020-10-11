@@ -1,4 +1,5 @@
-
+import sys
+sys.setrecursionlimit(10**8)
 visited = {}
 COUNT = 0
 def dfs(dic, depar, hub, dest):
@@ -19,6 +20,7 @@ def solution(depar, hub, dest, roads):
     for r in roads:
         if r[0] in dic:
             dic[r[0]].append(r[1])
+            dic[r[0]] = [r[1]]
         else:
             dic[r[0]] = [r[1]]
     visited[depar] = True
