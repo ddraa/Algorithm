@@ -85,8 +85,8 @@ def solution(n, horizontal):
                 answer[i][j] = t
             cross -= 1
             continue
-    for i in answer:
-        print(i)
     return answer
 
-solution(100, False)
+s = solution(5, False)
+for a in s:
+    print(a)
