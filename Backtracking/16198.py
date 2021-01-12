@@ -1,4 +1,4 @@
-import sys, copy
+import sys
 sys.setrecursionlimit(10 ** 8)
 MAX = float('-inf')
 
@@ -8,14 +8,13 @@ def DFS(n, s):
         if MAX < s + w[0] * w[2]: MAX = w[0] * w[2] + s
         return
     else:
-        co = copy.deepcopy(w) # cur stage save
         for i in range(1, len(w) - 1):
-            temp = w[i-1] * w[i+1]
-            s += temp
+            t = w[i]
+            s += w[i-1] * w[i+1]
             del w[i]
             DFS(n - 1, s)
-            w = copy.deepcopy(co) # restore
-            s -= temp
+            w.insert(i, t)
+            s -= w[i-1] * w[i+1]
 
 N = int(input())
 w = list(map(int, input().split()))
