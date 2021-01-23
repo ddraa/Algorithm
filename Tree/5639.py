@@ -1,148 +1,55 @@
+import sys
+sys.setrecursionlimit(10**9)
+
 class Node:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
+    def __init__(self, data):
+        self.data = data
+        self.left = self.right = None
 
-
-class BST:  # Binary Search Tree
+class BinarySearchTree:
     def __init__(self):
-        self.head = None
+        self.root = None
 
-    def insert(self, value):
-        if self.head == None:
-            self.head = Node(value)
-        else:
-            self.current_node = self.head
-            while True:
-                if value < self.current_node.value:
-                    if self.current_node.left == None:
-                        self.current_node.left = Node(value)
-                        break
-                    else:
-                        self.current_node = self.current_node.left
-                else:
-                    if self.current_node.right == None:
-                        self.current_node.right = Node(value)
-                        break
-                    else:
-                        self.current_node = self.current_node.right
+    def insert(self, data):
+        new_node = Node(data)
 
-    def search(self, value):
-        if self.head == None:
-            return False
-        else:
-            self.current_node = self.head
+        if self.root is None:
+            self.root = new_node
+            return
 
-            while True:
-                if value == self.current_node.value:
-                    return self.current_node.value
-                else:
-                    if value < self.current_node.value:
-                        if value == self.current_node.left:
-                            return self.current_node.left
-                        elif self.current_node.left == None:
-                            return 'Not Found'
-                        else:
-                            self.current_node = self.current_node.left
-                    else:
-                        if value == self.current_node.right:
-                            return self.current_node.right
-                        elif self.current_node.right == None:
-                            return 'Not Found'
-                        else:
-                            self.current_node = self.current_node.right
+        current = self.root
 
-    def delete(self, value):
-        if self.head == None:
-            return False
-        else:
-            self.current_node = self.head
-            self.parent = self.head
-            check = True
-
-            while self.current_node:
-                if self.current_node.value == value:
-                    check = True
+        while True:
+            parent = current
+            if data < current.data:
+                current = current.left
+                if current is None:
+                    parent.left = new_node
                     break
-                elif value < \
-                        self.current_node.value:
-                    self.parent = self.current_node
-                    self.current_node = self.current_node.left
-                else:
-                    self.parent = self.current_node
-                    self.current_node = self.current_node.right
+            else:
+                current = current.right
+                if current is None:
+                    parent.right = new_node
+                    break
 
-            if check == False:
-                return False
+    def post(self):
+        def _post(node):
+            if node is not None:
+                _post(node.left)
+                _post(node.right)
+                print(node.data)
+        _post(self.root)
 
-            # case1 No child
-            if self.current_node.left == None and self.current_node.right == None:
-                if value < self.parent.value:
-                    self.parent.left = None
-                else:
-                    self.parent.right = None
 
-            # case2 one child
-            elif self.current_node.left != None and self.current_node.right == None:
-                if value < self.parent.value:
-                    self.parent.left = self.current_node.left
-                else:
-                    self.parent.right = self.current_node.left
-
-            elif self.current_node.left == None and self.current_node.right != None:
-                if value < self.parent.value:
-                    self.parent.left = self.current_node.right
-                else:
-                    self.parent.right = self.current_node.right
-
-            # case3 two child
-            elif self.current_node.left != None and self.current_node.right != None:
-                # case: left
-                if value < self.parent.value:
-                    self.change_node = self.current_node.right
-                    self.change_node_parent = self.current_node.right
-                    while self.change_node.left != None:
-                        self.change_node_parent = self.change_node
-                        self.change_node = self.change_node.left
-                    if self.change.right != None:
-                        self.change_parent.left = self.change_node.right
-                    else:
-                        self.change_node_parent.left = None
-                    self.parent.left = self.change_node
-                    self.change_node.right = self.current_node.right
-                    self.change_node.left = self.current_node.left
-
-                # case: right
-                else:
-                    self.change_node = self.current_node.right
-                    self.change_node_parent = self.current_node.right
-                    while self.change_node.left != None:
-                        self.change_node_parent = self.change_node
-                        self.change_node = self.change_node.left
-
-                    if self.change_node.right != None:
-                        self.change_node_parent.left = self.change_node.right
-                    else:
-                        self.chagne_node_parent.left = None
-                    self.parent.right = self.change_node
-                    self.change_node.left = self.current_node.left
-                    self.change_node.right = self.current_node.right
-
-            return True
-
-tree = BST()
+l = []
 while True:
     try:
-        i=int(input())
-        tree.insert(i)
+        l.append(int(sys.stdin.readline()))
     except:
         break
 
-def postorder(p):
-    if not p:
-        return
-    postorder(p.left)
-    postorder(p.right)
-    print(p.value)
-postorder(tree.head)
+bst = BinarySearchTree()
+for x in l:
+    bst.insert(x)
+
+bst.post()
