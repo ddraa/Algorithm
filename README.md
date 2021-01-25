@@ -20,8 +20,22 @@ Implement
 
 Algorithm
 ---------
-* 이진탐색
-* BFS, DFS, DP, Backtracking
+* 배열
+* 연결 리스트
+* stack, queue, deque
+* BFS, DFS, DP, BS
+* 재귀, 백트래킹
+* 시뮬레이션
+* 정렬
+* 트리(BST), 그래프
+* 위상정렬
+* Kruskal, Prim
+* Floyd, Dijkstra
+* Greedy
+* 수학
+* Hash, Heap
+* KMP, 라빈 카프
+
 
 Reference
 ---------
@@ -29,6 +43,6 @@ Reference
 
 ETC
 -----
-시뮬레이션 수행과제 --> [https://github.com/kakao-recruit/2019-blind-2nd-elevator][id]
+수행과제 --> [https://github.com/kakao-recruit/2019-blind-2nd-elevator][id]
 
 [id]: https://github.com/kakao-recruit/2019-blind-2nd-elevator "GoGo Girit"
