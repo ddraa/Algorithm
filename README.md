@@ -20,21 +20,21 @@ Implement
 
 Algorithm
 ---------
-* 배열
-* 연결 리스트
-* stack, queue, deque
-* BFS, DFS, DP, BS
-* 재귀, 백트래킹
-* 시뮬레이션
-* 정렬
-* 트리(BST), 그래프
-* 위상정렬
-* Kruskal, Prim
-* Floyd, Dijkstra
-* Greedy
-* 수학
-* Hash, Heap
-* KMP, 라빈 카프
+* [x] 배열
+* [x] 연결 리스트
+* [ ] stack, queue, deque
+* [ ] BFS, DFS, DP, BS
+* [ ] 재귀, 백트래킹
+* [ ] 시뮬레이션
+* [ ] 정렬
+* [ ] 트리(BST), 그래프
+* [ ] 위상정렬
+* [ ] Kruskal, Prim
+* [ ] Floyd, Dijkstra
+* [ ] Greedy
+* [ ] 수학
+* [ ] Hash, Heap
+* [ ] KMP, 라빈 카프
 
 
 Reference
