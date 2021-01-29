@@ -22,7 +22,7 @@ Algorithm
 ---------
 * [x] 배열
 * [x] 연결 리스트
-* [ ] stack, queue, deque
+* [x] stack, queue, deque
 * [ ] BFS, DFS, DP, BS
 * [ ] 재귀, 백트래킹
 * [ ] 시뮬레이션
