@@ -29,8 +29,8 @@ Algorithm
 * [ ] 정렬
 * [ ] 트리(BST), 그래프
 * [ ] 위상정렬
-* [ ] Kruskal, Prim
-* [ ] Floyd, Dijkstra
+* [ ] Kruskal, Prim (MST)
+* [ ] Dijkstra, Bellman-Ford, Floyd-Warshall
 * [ ] Greedy
 * [ ] 수학
 * [ ] Hash, Heap
