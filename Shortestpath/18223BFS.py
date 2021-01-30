@@ -1,6 +1,7 @@
 import sys, heapq
 from collections import deque
 
+# how to find all of the vertex in shortest path ..
 
 def dijkstra(start):
     distances = {vertex : float('inf') for vertex in graph}
