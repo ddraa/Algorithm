@@ -30,6 +30,7 @@ def BFS(end, p):
     visited[end] = True
     queue = deque([end])
     s = set([end])
+
     while queue:
         u = queue.popleft()
         for v, weight in graph[u].items():
@@ -37,7 +38,7 @@ def BFS(end, p):
                 visited[v] = True
                 s.add(v)
                 queue.append(v)
-
+    print(s)
     print("SAVE HIM") if p in s else print("GOOD BYE")
 
 
@@ -57,7 +58,7 @@ for _ in range(E): # make Bidirectional graph
     else:
         graph[v2][v1] = w
 
-
 dist = dijkstra(1)
+print(dist)
 BFS(V, P)
 

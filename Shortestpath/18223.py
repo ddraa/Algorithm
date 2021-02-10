@@ -54,5 +54,6 @@ for _ in range(E): # make graph
         graph[v2][v1] = w
 
 res = dijkstra(1, V)
+print(res)
 search(V)
 print("SAVE HIM") if save else print("GOOD BYE")
