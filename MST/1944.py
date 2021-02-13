@@ -3,7 +3,7 @@ from collections import deque
 
 dx = [0, 0, -1, 1]
 dy = [1, -1, 0, 0]
-inf = 2500
+
 def BFS(rx, ry):
     queue = deque([[rx, ry, 0]])
     visited = [[False] * N for _ in range(N)]
@@ -38,8 +38,7 @@ N, K = map(int, sys.stdin.readline().split())
 
 #init
 cost, edges, c = 0, 0, 0 # c : # of nodes
-graph, mat, node, nidx = [], [], [], [[-1] * inf for _ in range(inf)]
-flag = [[False] * inf for _ in range(inf)]
+graph, mat, node, nidx = [], [], [], [[-1] * N for _ in range(N)]
 
 for _ in range(N):
     mat.append(sys.stdin.readline().strip())
@@ -51,7 +50,8 @@ for i in range(N):
             nidx[i][j] = c # input node number
             c += 1
 
-p = [i for i in range(inf)]
+flag = [[False] * c for _ in range(c)]
+p = [i for i in range(c)]
 
 for x, y in node:
     BFS(x, y)
