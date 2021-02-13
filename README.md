@@ -26,7 +26,7 @@ Algorithm
 * [ ] BFS, DFS, DP, BS
 * [ ] 재귀, 백트래킹
 * [ ] 시뮬레이션
-* [ ] 정렬
+* [x] 정렬
 * [ ] 트리(BST), 그래프
 * [ ] 위상정렬
 * [ ] Kruskal, Prim (MST)
