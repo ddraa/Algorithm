@@ -31,4 +31,10 @@ def LIS(P):
             Table[j] = i
     return Table
 
-print(LIS("ABXAB"))
+t = sys.stdin.readline().rstrip()
+p = sys.stdin.readline().rstrip()
+
+ans = KMP(p, t)
+print(len(ans))
+for idx in ans:
+    print(idx)

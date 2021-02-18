@@ -1,46 +1,37 @@
 import sys
 
-def KMPSearch(pat, txt):
-    t = []
-    M = len(pat)
-    N = len(txt)
-
-    lps = [0]*M
-
-    computeLPS(pat, lps)
-
-    i = 0  # index for txt[]
-    j = 0  # index for pat[]
-    while i < N:
-        if pat[j] == txt[i]:
-            i += 1
-            j += 1
-        elif pat[j] != txt[i]:
-            if j != 0:
-                j = lps[j-1]
+def KMP(P,T):
+    arr = []
+    lt = len(T)
+    lp = len(P)
+    table = LIS(P)
+    i = 0
+    for j in range(lt):
+        while i > 0 and P[i] != T[j]:
+            i = table[i - 1]
+        if P[i] == T[j]:
+            if i == lp - 1:
+                #arr.append(j - lp + 2)
+                i = table[i]
+                return True
             else:
                 i += 1
-
-        if j == M:
-            return True # efficiency
-            j = lps[j-1]
     return False
 
-def computeLPS(pat, lps):
-    leng = 0
 
-    i = 1
-    while i < len(pat):
-        if pat[i] == pat[leng]:
-            leng += 1
-            lps[i] = leng
+def LIS(P):
+    lp = len(P)
+    Table = [0] * lp
+    i = 0
+    for j in range(1, lp):
+        while i > 0 and P[i] != P[j]:
+            i = Table[i - 1]
+
+        if P[i] == P[j]:
             i += 1
-        else:
-            if leng != 0:
-                leng = lps[leng-1]
-            else:
-                lps[i] = 0
-                i += 1
+            Table[j] = i
+    return Table
+
 
 string = []
 n, k = map(int, sys.stdin.readline().split())
@@ -49,13 +40,14 @@ for _ in range(n):
     string.append(sys.stdin.readline().split())
 sample = string[0]
 
-for i in range(len(sample) - k + 1):
-    pattern = sample[i:i + k]
+
+for s in range(len(sample) - k + 1):
+    pattern = sample[s:s + k]
     c = 0
-    for j in range(1, n):
-        ans = KMPSearch(pattern, string[j])
+    for ss in range(1, n):
+        ans = KMP(pattern, string[ss])
         if not ans:
-            ans = KMPSearch(list(reversed(pattern)), string[j])
+            ans = KMP(list(reversed(pattern)), string[ss])
             if not ans:
                 break
             else:

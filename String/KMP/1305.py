@@ -31,4 +31,8 @@ def LIS(P):
             Table[j] = i
     return Table
 
-print(LIS("ABXAB"))
+L = int(sys.stdin.readline())
+t = sys.stdin.readline().rstrip()
+
+table = LIS(t)
+print(L - table[L - 1])
