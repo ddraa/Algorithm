@@ -1,3 +1,5 @@
+# 상범 빌딩
+
 import sys
 from collections import deque
 
@@ -20,7 +22,7 @@ def bfs(x, y, z, d):
             ty = y + dy[k]
             tz = z + dz[k]
 
-            if 0 <= tx < l and 0 <= ty < r and 0 <= tz < c and (board[tx][ty][tz] == '.' or board[tx][ty][tz] == 'E'):
+            if 0 <= tx < l and 0 <= ty < r and 0 <= tz < c and (board[tx][ty][tz] == '.' or board[tx][ty][tz] == 'E'): # E 지점 체크 주의
                 if not visited[tx][ty][tz]:
                     visited[tx][ty][tz] = True
                     queue.append((tx, ty, tz, d + 1))
