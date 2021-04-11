@@ -1,4 +1,6 @@
 import sys
+
+
 # 선분 교차 판정 solution
 
 def isCCW(p1, p2, p3):
@@ -23,13 +25,15 @@ def solution():
     r4 = isCCW([x3, y3], [x4, y4], [x2, y2])
 
     if r1 * r2 == 0 and r3 * r4 == 0:
-        if [x1, y1] > [x2, y2]: x1, y1, x2, y2 = x2, y2, x1, y1
-        if [x3, y3] > [x4, y4]: x3, y3, x4, y4 = x4, y4, x3, y3
+        if [x1, y1] > [x2, y2]:
+            x1, y1, x2, y2 = x2, y2, x1, y1
+        if [x3, y3] > [x4, y4]:
+            x3, y3, x4, y4 = x4, y4, x3, y3
 
         if [x1, y1] <= [x4, y4] and [x3, y3] <= [x2, y2]:
             return True
         else:
-            False
+            return False
 
     if r1 * r2 <= 0 and r3 * r4 <= 0:
         return True
