@@ -1,28 +1,29 @@
 import sys, heapq
 from collections import deque
 
+
 # how to find all of the vertex in shortest path ..
 
 def dijkstra(start):
-    dist = {vertex : float('inf') for vertex in graph}
+    dist = {vertex: float('inf') for vertex in graph}
     dist[start] = 0
     queue = []
-    heapq.heappush(queue, [dist[start], start]) # distance, vertex
+    heapq.heappush(queue, [dist[start], start])  # distance, vertex
 
     while queue:
-        cur_dist, cur_v = heapq.heappop(queue)
-        if dist[cur_v] < cur_dist:
+        current_weight, current_vertex = heapq.heappop(queue)  # 우선순위 큐
+        if dist[current_vertex] < current_weight:
             continue
 
-        for adj, weight in graph[cur_v].items():
-            distance = cur_dist + weight
+        for adj, weight in graph[current_vertex].items():
+            distance = current_weight + weight
             if dist[adj] > distance:
                 dist[adj] = distance
                 heapq.heappush(queue, [distance, adj])
     return dist
 
-def BFS(end):
 
+def BFS(end):
     queue = deque([end])
     deleted = []
     while queue:
@@ -49,7 +50,7 @@ while True:
 
     s, e = map(int, sys.stdin.readline().split())
 
-    for _ in range(M): # make Bidirectional graph
+    for _ in range(M):  # make Bidirectional graph
         v1, v2, w = map(int, sys.stdin.readline().split())
         graph[v1][v2] = w
         rgraph[v2][v1] = w
