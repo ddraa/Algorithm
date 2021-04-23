@@ -42,6 +42,4 @@ Reference
 
 ETC
 -----
-수행과제 --> [https://github.com/kakao-recruit/2019-blind-2nd-elevator][id]
 
-[id]: https://github.com/kakao-recruit/2019-blind-2nd-elevator "GoGo Girit"
