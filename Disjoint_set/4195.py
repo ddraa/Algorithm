@@ -12,6 +12,7 @@ def find(u):
 def union(u, v):
     r1, r2 = find(u), find(v)
     p[r2] = r1
+
     count[r1] += count[r2]
 
 
