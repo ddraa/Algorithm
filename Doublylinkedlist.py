@@ -116,6 +116,6 @@ class NodeMgmt:
 doublelist = NodeMgmt(0)
 for i in range(1, 10):
     doublelist.insert(i)
-#doublelist.insert_before(1.5, 2)
-doublelist.insert_after(33, 4)
+doublelist.insert_before(1.5, 2)
+doublelist.insert_after(33, 8)
 doublelist.print()

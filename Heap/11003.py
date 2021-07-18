@@ -8,7 +8,7 @@ removed = []
 
 i = 0
 r = i - L
-while i < N:
+while i < N: # lazy
     if r >= 0:
         heappush(removed, arr[r])
     heappush(h, arr[i])

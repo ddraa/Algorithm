@@ -6,7 +6,7 @@ def divide(x, y, n):
 
     for i in range(x, x + n):
         for j in range(y, y + n):
-            if board[i][j] != flag:
+            if board[i][j] != flag: # 같은 수가 아니라면
                 for k in range(3):
                     for l in range(3):
                         divide(x + k*n//3, y + l*n//3, n//3)

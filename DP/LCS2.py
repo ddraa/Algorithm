@@ -1,4 +1,3 @@
-# 9252
 import sys
 
 a = "0" + sys.stdin.readline().strip()
@@ -15,4 +14,3 @@ for i in range(1, len(a)):
 
 res = dp[len(a) - 1][len(b) - 1]
 print(len(res))
-print(res)

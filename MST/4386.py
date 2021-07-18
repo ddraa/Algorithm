@@ -27,6 +27,7 @@ for cs in combinations(range(N), 2):
     s1n, s2n = cs[0], cs[1]
     dist = math.sqrt((star[s2n][0] - star[s1n][0]) ** 2 + (star[s2n][1] - star[s1n][1]) ** 2)
     graph.append((s1n, s2n, dist))
+
 graph.sort(key = lambda k:k[2])
 
 cost = 0

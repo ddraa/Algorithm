@@ -15,10 +15,7 @@ def isCCW(p1, p2, p3):
         return 0
 
 
-def solution():
-    x1, y1, x2, y2 = map(int, sys.stdin.readline().split())
-    x3, y3, x4, y4 = map(int, sys.stdin.readline().split())
-
+def CrossCheck(x1, y1, x2, y2, x3, y3, x4, y4):
     r1 = isCCW([x1, y1], [x2, y2], [x3, y3])
     r2 = isCCW([x1, y1], [x2, y2], [x4, y4])
     r3 = isCCW([x3, y3], [x4, y4], [x1, y1])
@@ -40,5 +37,3 @@ def solution():
     else:
         return False
 
-
-print(1 if solution() else 0)
